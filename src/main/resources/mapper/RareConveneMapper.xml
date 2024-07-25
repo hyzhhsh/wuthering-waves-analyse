@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hyzhhsh.wutheringwavesanalyse.server.mapper.RareConveneMapper">
+
+    <insert id="insertBatch" parameterType="java.util.List">
+        insert into rare_convene_item (
+        cardPoolType, resourceType, name,
+        cost, target, time,
+        timeKey, playerId)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">(
+            #{item.cardPoolType}, #{item.resourceType}, #{item.name},
+            #{item.cost}, #{item.target}, #{item.time},
+            #{item.timeKey}, #{item.playerId})
+        </foreach>
+    </insert>
+</mapper>

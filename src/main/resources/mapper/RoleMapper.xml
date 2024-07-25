@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hyzhhsh.wutheringwavesanalyse.server.mapper.RoleMapper">
+    <insert id="insert" parameterType="Role">
+        insert into role (playerId, roleName, cardPoolId,
+                          serverId, recordId)
+        values (#{playerId}, #{roleName}, #{cardPoolId},
+                #{serverId}, #{recordId})
+    </insert>
+
+    <update id="update" parameterType="Role">
+        update role
+        <set>
+            <if test="roleName != null and roleName != ''">
+                roleName = #{roleName},
+            </if>
+            <if test="cardPoolId != null and cardPoolId != ''">
+                cardPoolId = #{cardPoolId},
+            </if>
+            <if test="serverId != null and serverId != ''">
+                serverId = #{serverId},
+            </if>
+            <if test="recordId != null and recordId != ''">
+                recordId = #{recordId}
+            </if>
+        </set>
+        where playerId = #{playerId}
+    </update>
+</mapper>

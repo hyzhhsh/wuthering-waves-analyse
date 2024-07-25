@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.hyzhhsh.wutheringwavesanalyse.server.mapper.ConveneSummaryMapper">
+
+    <insert id="insert" parameterType="ConveneSummary">
+        insert into convene_summary (playerId,
+                                     cardPoolCost,
+                                     cardPoolGet,
+                                     cardPoolTarget,
+                                     cardPoolPrepared)
+        values (#{playerId},
+                #{cardPoolCost},
+                #{cardPoolGet},
+                #{cardPoolTarget},
+                #{cardPoolPrepared})
+    </insert>
+
+    <resultMap id="ConveneSummaryMap" type="ConveneSummary">
+        <id column="playerId" property="playerId"/>
+        <result column="cardPoolCost" property="cardPoolCost"
+                typeHandler="cn.hyzhhsh.wutheringwavesanalyse.server.handler.JsonTypeHandler"/>
+        <result column="cardPoolGet" property="cardPoolGet"
+                typeHandler="cn.hyzhhsh.wutheringwavesanalyse.server.handler.JsonTypeHandler"/>
+        <result column="cardPoolTarget" property="cardPoolTarget"
+                typeHandler="cn.hyzhhsh.wutheringwavesanalyse.server.handler.JsonTypeHandler"/>
+        <result column="cardPoolPrepared" property="cardPoolPrepared"
+                typeHandler="cn.hyzhhsh.wutheringwavesanalyse.server.handler.JsonTypeHandler"/>
+    </resultMap>
+
+    <select id="select" parameterType="long" resultMap="ConveneSummaryMap">
+        select *
+        from convene_summary
+        where playerId = #{playerId}
+    </select>
+</mapper>

@@ -1,0 +1,33 @@
+datasource:
+  host: localhost
+  port: 3306
+  database: wuthering_waves_analyse
+  username: root
+  password: 1234
+
+server:
+  port: 8081
+
+spring:
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://${datasource.host}:${datasource.port}/${datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${datasource.username}
+      password: ${datasource.password}
+  servlet:
+    multipart:
+      #      限制单个文件大小
+      max-file-size: 1MB
+      #      限制请求大小
+      max-request-size: 1MB
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.hyzhhsh.wutheringwavesanalyse.pojo
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
