@@ -5,4 +5,4 @@
 
 其他技术包括 `MyBatis` 、 `Druid` 、 `Lombok` 、 `Knife4j` 、 `HttpClient` 等
 
-内置UP卡池信息更新到 `1.1` 版本
+内置UP卡池信息更新到 `1.2` 版本
