@@ -81,7 +81,7 @@ public class ConveneController {
         String jsonString = conveneService.export(playerId);
         ByteArrayInputStream inputStream = new ByteArrayInputStream(jsonString.getBytes());
 
-        String fileName = playerId + "-" + DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss").format(LocalDateTime.now());
+        String fileName = playerId + "-" + DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss").format(LocalDateTime.now());
 
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-Disposition", "attachment; filename=" + fileName + ".json");
