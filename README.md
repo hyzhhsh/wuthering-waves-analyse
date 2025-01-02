@@ -5,4 +5,4 @@
 
 其他技术包括 `MyBatis` 、 `Druid` 、 `Lombok` 、 `Knife4j` 、 `HttpClient` 等
 
-内置UP卡池信息更新到 `1.4 暗夜叩响白昼之门` 版本
+内置UP卡池信息更新到 `2.0 致缄默以欢歌` 版本

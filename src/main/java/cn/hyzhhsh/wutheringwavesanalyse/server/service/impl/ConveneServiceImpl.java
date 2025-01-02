@@ -104,7 +104,7 @@ public class ConveneServiceImpl implements ConveneService {
 
             int statusCode = apiResponse.getCode();
             if (statusCode != 0)
-                throw new BaseException("接口获取信息失败角色参数。参考消息：" + apiResponse.getMessage());
+                throw new BaseException("接口获取角色信息失败。参考消息：" + apiResponse.getMessage());
             List<ConveneItem> conveneItems = apiResponse.getData();
 //        if (conveneItems.isEmpty())
 //            throw new BaseException("接口获取信息为空，可能是此卡池无唤取记录或recordId填写有误");
